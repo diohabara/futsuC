@@ -42,7 +42,7 @@ static void do_ls(char *path) {
     char *mtime = ctime(&st.st_mtime);
     mtime[strlen(mtime) - 1] = '\0';
 
-    struct passwd *pw = getpwduid(st.st_uid);
+    struct passwd *pw = getpwuid(st.st_uid);
     if (pw) {
       printf("%s owner=%s mtime=%s\n", ent->d_name, pw->pw_name, mtime);
     } else {
